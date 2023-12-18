@@ -1,5 +1,7 @@
 package com.example.transactiondemo.entity;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceCreator;
@@ -13,6 +15,7 @@ import org.springframework.data.relational.core.mapping.Table;
 
 public class EmployeeDto {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String firstName;
     private String lastName;
