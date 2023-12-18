@@ -1,9 +1,11 @@
 package com.example.transactiondemo.service;
 
 import com.example.transactiondemo.dao.EmployeeDao;
+import com.example.transactiondemo.dao.EmployeeData;
 import com.example.transactiondemo.dao.EmployeeJdbcClient;
 import com.example.transactiondemo.dao.EmployeeRepository;
 import com.example.transactiondemo.entity.Employee;
+import com.example.transactiondemo.entity.EmployeeDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,12 @@ public class EmployeeService {
     private final EmployeeDao employeeDao;
     private final EmployeeJdbcClient employeeJdbcClient;
     private final EmployeeRepository employeeRepository;
+
+    private final EmployeeData employeeData;
+
+    public void createEmployee(EmployeeDto employeeDto){
+        employeeData.save(employeeDto);
+    }
 
     public void doAction(){
         employeeDao.createEmployee("Mg","Mg",
